@@ -42,7 +42,7 @@ public class UsuarioController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Integer id, @RequestBody Usuario usuarioParcial) {
+    public ResponseEntity<Usuario> atualizarUsuarioParcial(@PathVariable Integer id, @RequestBody Usuario usuarioParcial) {
         Usuario atualizado = usuarioService.atualizarUsuarioParcial(id, usuarioParcial);
 
         if(atualizado == null) {
@@ -53,7 +53,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(PathVariable id, @RequestBody Usuario usuarioAtualizado) {
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Integer id, @RequestBody Usuario usuarioAtualizado) {
         Usuario atualizado = usuarioService.atualizarUsuario(id, usuarioAtualizado);
         if(atualizado == null) {
             return ResponseEntity.notFound().build();
